@@ -91,3 +91,20 @@ ul {
   flex-direction: column; /* Coloca itens da lista em coluna */
   align-items: center; /* Centraliza cada item da lista */
 }
+
+.edit-cancel {
+  margin-top: 10px;
+  background-color: red;
+}
+
+.edit-cancel:hover {
+  background-color: darkred;
+}
+
+.remove-list {
+  background-color: red;
+}
+
+.remove-list:hover {
+  background-color: darkred;
+}

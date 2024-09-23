@@ -27,8 +27,8 @@ const TaskList = () => {
 
   return (
     <div className="task-list">
-      <h1>Task List</h1>
-      <Link to="/add">Add Task</Link>
+      <h1>Lista de Tarefas</h1>
+      <Link to="/add">Adicionar Tarefa</Link>
       <ul>
         {tasks.map(task => (
           <li key={task.id}>
@@ -36,10 +36,10 @@ const TaskList = () => {
               {task.title}
             </span>
             <button onClick={() => toggleCompleted(task)}>
-              {task.completed ? 'Mark as Incomplete' : 'Mark as Completed'}
+              {task.completed ? 'Desfazer tarefa' : 'Tarefa concluída'}
             </button>
-            <Link to={`/edit/${task.id}`}>Edit</Link>
-            <button onClick={() => deleteTask(task.id)}>Delete</button>
+            <Link to={`/edit/${task.id}`}>Editar</Link>
+            <button onClick={() => deleteTask(task.id)} class="remove-list">Remover</button>
           </li>
         ))}
       </ul>

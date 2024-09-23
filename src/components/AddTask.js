@@ -12,17 +12,22 @@ const AddTask = () => {
     navigate('/');
   };
 
+  const cancelEdit = () => {
+    navigate('/'); 
+  };
+
   return (
     <form onSubmit={addTask}>
-      <h1>Add Task</h1>
+      <h1>Adicionar Tarefa</h1>
       <input
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Task Title"
+        placeholder="Enviar relatório"
         required
       />
-      <button type="submit">Add</button>
+      <button type="submit">Adicionar</button>
+      <button type="button" onClick={cancelEdit} class="edit-cancel">Cancelar</button>
     </form>
   );
 };

@@ -21,17 +21,22 @@ const EditTask = () => {
     navigate('/');
   };
 
+  const cancelEdit = () => {
+    navigate('/'); 
+  };
+
   return (
     <form onSubmit={updateTask}>
-      <h1>Edit Task</h1>
+      <h1>Editar Tarefa</h1>
       <input
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Task Title"
+        placeholder="Enviar relatório"
         required
       />
-      <button type="submit">Update</button>
+      <button type="submit">Atualizar</button>
+      <button type="button" onClick={cancelEdit} class="edit-cancel">Cancelar</button>
     </form>
   );
 };
