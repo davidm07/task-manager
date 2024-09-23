@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 const EditTask = () => {
   const [title, setTitle] = useState('');
+  const [description, setDescription] = useState(''); 
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -11,14 +12,15 @@ const EditTask = () => {
     const fetchTask = async () => {
       const response = await axios.get(`http://localhost:5000/tasks/${id}`);
       setTitle(response.data.title);
+      setDescription(response.data.description); 
     };
     fetchTask();
   }, [id]);
 
   const updateTask = async (e) => {
     e.preventDefault();
-    await axios.put(`http://localhost:5000/tasks/${id}`, { title });
-    navigate('/');
+    await axios.put(`http://localhost:5000/tasks/${id}`, { title, description }); 
+    navigate('/'); // Redirect to TaskList after updating
   };
 
   const cancelEdit = () => {
@@ -32,11 +34,17 @@ const EditTask = () => {
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Enviar relatório"
+        placeholder="Título da tarefa"
+        required
+      />
+      <textarea
+        value={description}
+        onChange={(e) => setDescription(e.target.value)} 
+        placeholder="Descrição da tarefa"
         required
       />
       <button type="submit">Atualizar</button>
-      <button type="button" onClick={cancelEdit} class="edit-cancel">Cancelar</button>
+      <button type="button" onClick={cancelEdit} className="edit-cancel">Cancelar</button>
     </form>
   );
 };

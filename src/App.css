@@ -17,11 +17,12 @@ body {
 
 h1 {
   color: #333;
+  margin-bottom: 20px; 
 }
 
 ul {
-  list-style: none; /* Remove o estilo da lista */
-  padding: 0; /* Remove o padding padrão */
+  list-style: none; 
+  padding: 0;
 }
 
 li {
@@ -30,34 +31,45 @@ li {
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 300px; /* Largura fixa para os itens da lista */
+  width: 300px; 
   display: flex;
-  justify-content: space-between; /* Alinha os botões à direita */
-  align-items: center; /* Centraliza verticalmente */
+  flex-direction: column; 
+  align-items: flex-start; 
+}
+
+li p {
+  margin: 5px 0; 
+  color: #555; 
 }
 
 button {
-  background-color: #28a745; /* Verde para o botão */
+  background-color: #28a745; 
   color: white;
   border: none;
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-right: 10px; 
 }
 
 button:hover {
-  background-color: #218838; /* Escurece ao passar o mouse */
+  background-color: #218838; 
+}
+
+.button-container {
+  display: flex; 
+  margin-top: 5px; 
 }
 
 a {
-  margin-left: 10px; /* Espaçamento entre os botões */
+  margin-left: 10px; 
   text-decoration: none;
-  color: #007bff; /* Azul para links */
+  color: #007bff; 
 }
 
 a:hover {
-  text-decoration: underline; /* Sublinha ao passar o mouse */
+  text-decoration: underline; 
 }
 
 form {
@@ -67,34 +79,29 @@ form {
   margin-bottom: 20px;
 }
 
-input {
+input, textarea { 
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 300px; /* Largura fixa para o input */
+  width: 300px; 
+}
+
+textarea {
+  resize: vertical; 
+  height: 100px; 
 }
 
 .task-list {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centraliza horizontalmente */
-  margin-top: 20px; /* Espaço acima da lista */
-}
-
-h1 {
-  margin-bottom: 20px; /* Espaço abaixo do título */
-}
-
-ul {
-  display: flex;
-  flex-direction: column; /* Coloca itens da lista em coluna */
-  align-items: center; /* Centraliza cada item da lista */
+  align-items: center; 
+  margin-top: 20px; 
 }
 
 .edit-cancel {
-  margin-top: 10px;
   background-color: red;
+  margin-top: 10px;
 }
 
 .edit-cancel:hover {
@@ -107,4 +114,12 @@ ul {
 
 .remove-list:hover {
   background-color: darkred;
+}
+
+.edit-list {
+  background-color: #007bff;
+}
+
+.edit-list:hover {
+  background-color: #0069d9;
 }

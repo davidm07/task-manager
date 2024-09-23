@@ -1,4 +1,3 @@
-// TaskList.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -33,13 +32,18 @@ const TaskList = () => {
         {tasks.map(task => (
           <li key={task.id}>
             <span style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
-              {task.title}
+              <strong>Tarefa:</strong> {task.title}
             </span>
-            <button onClick={() => toggleCompleted(task)}>
-              {task.completed ? 'Desfazer tarefa' : 'Tarefa concluída'}
-            </button>
-            <Link to={`/edit/${task.id}`}>Editar</Link>
-            <button onClick={() => deleteTask(task.id)} class="remove-list">Remover</button>
+            <p><strong>Descrição:</strong> {task.description}</p>
+            <div className="button-container"> {/* Adicionando contêiner para botões */}
+              <button onClick={() => toggleCompleted(task)}>
+                {task.completed ? 'Desfazer tarefa' : 'Tarefa concluída'}
+              </button>
+              <Link to={`/edit/${task.id}`}>
+                <button className="edit-list">Editar</button>
+              </Link>
+              <button onClick={() => deleteTask(task.id)} className="remove-list">Remover</button>
+            </div>
           </li>
         ))}
       </ul>

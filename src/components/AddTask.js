@@ -4,11 +4,12 @@ import { useNavigate } from 'react-router-dom';
 
 const AddTask = () => {
   const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const navigate = useNavigate();
 
   const addTask = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/tasks', { title });
+    await axios.post('http://localhost:5000/tasks', { title, description }); 
     navigate('/');
   };
 
@@ -23,11 +24,17 @@ const AddTask = () => {
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Enviar relatório"
+        placeholder="Título da tarefa"
+        required
+      />
+      <textarea
+        value={description}
+        onChange={(e) => setDescription(e.target.value)} 
+        placeholder="Descrição da tarefa"
         required
       />
       <button type="submit">Adicionar</button>
-      <button type="button" onClick={cancelEdit} class="edit-cancel">Cancelar</button>
+      <button type="button" onClick={cancelEdit} className="edit-cancel">Cancelar</button>
     </form>
   );
 };
